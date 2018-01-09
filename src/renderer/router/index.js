@@ -13,7 +13,13 @@ const RouterConfig = {
   routes: routers
 }
 
+
+Cookies.set('user', 'aaa')
+Cookies.set('password', 'bbb')
+Cookies.set('access', 0)
+
 export const router = new VueRouter(RouterConfig)
+console.log("ccccccccccccccccccccc")
 
 router.beforeEach((to, from, next) => {
   iView.LoadingBar.start()
@@ -26,9 +32,11 @@ router.beforeEach((to, from, next) => {
   } else if (Cookies.get('locking') === '0' && to.name === 'locking') {
     next(false)
   } else {
-    if (!Cookies.get('user') && to.name !== 'login') { // 判断是否已经登录且前往的页面不是登录页
+    if (!Cookies.get('user') && to.name !== 'login' && false ) { // 判断是否已经登录且前往的页面不是登录页
+      console.log("aaaaaaaaaaaaaaaaaaaaaaaa")
       next({
         name: 'login'
+       // name: 'home_index'
       })
     } else if (Cookies.get('user') && to.name === 'login') { // 判断是否已经登录且前往的是登录页
       Util.title()

@@ -8,6 +8,9 @@ export const loginRouter = {
     title: 'Login - 登录'
   },
   component: resolve => { require(['@/views/login.vue'], resolve) }
+  //component: resolve => { require(['@/views/main.vue'], resolve) }
+  //component: resolve => { require(['@/components/LandingPage'], resolve) }
+  //component: resolve => { require(['@/views/home/home.vue'], resolve) }
 }
 
 export const page404 = {

@@ -1,5 +1,7 @@
+/*jshint esversion:6 */
+
 import axios from 'axios'
-import env from '../../../build/env'
+import env from '../../../src/env'
 import semver from 'semver'
 import packjson from '../../../package.json'
 
@@ -130,9 +132,9 @@ util.setCurrentPath = function (vm, name) {
           if (childArr[i].name === name) {
             return true
           }
-          i++
+          i++;
         }
-        return false
+        return false;
       }
     })[0]
     if (currentPathObj.children.length <= 1 && currentPathObj.name === 'home') {

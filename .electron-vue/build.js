@@ -1,22 +1,25 @@
-'use strict'
+/*jshint esversion:6 */
 
-process.env.NODE_ENV = 'production'
+'use strict';
 
-const { say } = require('cfonts')
-const chalk = require('chalk')
-const del = require('del')
-const { spawn } = require('child_process')
-const webpack = require('webpack')
-const Multispinner = require('multispinner')
+process.env.NODE_ENV = 'development';
+//process.env.NODE_ENV = 'production'
 
+const { say } = require('cfonts');
+const chalk = require('chalk');
+const del = require('del');
+const packager = require('electron-packager');
+const webpack = require('webpack');
+const Multispinner = require('multispinner');
 
-const mainConfig = require('./webpack.main.config')
-const rendererConfig = require('./webpack.renderer.config')
-const webConfig = require('./webpack.web.config')
+const buildConfig = require('./build.config');
+const mainConfig = require('./webpack.main.config');
+const rendererConfig = require('./webpack.renderer.config');
+const webConfig = require('./webpack.web.config');
 
-const doneLog = chalk.bgGreen.white(' DONE ') + ' '
-const errorLog = chalk.bgRed.white(' ERROR ') + ' '
-const okayLog = chalk.bgBlue.white(' OKAY ') + ' '
+const doneLog = chalk.bgGreen.white(' DONE ') + ' ';
+const errorLog = chalk.bgRed.white(' ERROR ') + ' ';
+const okayLog = chalk.bgBlue.white(' OKAY ') + ' ';
 const isCI = process.env.CI || false
 
 if (process.env.BUILD_TARGET === 'clean') clean()
@@ -45,8 +48,8 @@ function build () {
   m.on('success', () => {
     process.stdout.write('\x1B[2J\x1B[0f')
     console.log(`\n\n${results}`)
-    console.log(`${okayLog}take it away ${chalk.yellow('`electron-builder`')}\n`)
-    process.exit()
+    console.log(`${okayLog}take it away ${chalk.yellow('`electron-packager`')}\n`)
+    bundleApp()
   })
 
   pack(mainConfig).then(result => {
@@ -55,8 +58,8 @@ function build () {
   }).catch(err => {
     m.error('main')
     console.log(`\n  ${errorLog}failed to build main process`)
-    console.error(`\n${err}\n`)
-    process.exit(1)
+    console.error(`\n${err}\n`);
+    process.exit(1);
   })
 
   pack(rendererConfig).then(result => {
@@ -94,6 +97,17 @@ function pack (config) {
         }))
       }
     })
+  })
+}
+
+function bundleApp () {
+  packager(buildConfig, (err, appPaths) => {
+    if (err) {
+      console.log(`\n${errorLog}${chalk.yellow('`electron-packager`')} says...\n`)
+      console.log(err + '\n')
+    } else {
+      console.log(`\n${doneLog}\n`)
+    }
   })
 }
 
