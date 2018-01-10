@@ -25,7 +25,7 @@ Cookies.set('access', 0)
 
 export const router = new VueRouter(RouterConfig)
 
-console.log("ccccccccccccccc:",Cookies.get("aaa"))
+console.log("user is:",Cookies.get("user"))
 
 
 

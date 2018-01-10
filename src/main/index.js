@@ -1,7 +1,7 @@
 'use strict'
 
 import { app, BrowserWindow } from 'electron'
-import Cookies from '@/libs/electron-cookie'
+import Cookies from '../renderer/libs/electron-cookie'
 
 /**
  * Set `__static` path to static files in production
@@ -32,7 +32,7 @@ function createWindow () {
   
   if (process.env.NODE_ENV === 'development'||true) {
     mainWindow.webContents.openDevTools()
-    BrowserWindow.addDevToolsExtension("C:/Users/Administrator/AppData/Local/Google/Chrome/User Data/Default/Extensions/nhdogjmejiglipccpnnnanhbledajbpd/3.1.7_0");
+    //BrowserWindow.addDevToolsExtension("C:/Users/Administrator/AppData/Local/Google/Chrome/User Data/Default/Extensions/nhdogjmejiglipccpnnnanhbledajbpd/3.1.7_0");
 }
 
   mainWindow.loadURL(winURL)
