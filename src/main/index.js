@@ -15,6 +15,9 @@ const winURL = process.env.NODE_ENV === 'development'
   ? `http://localhost:9080`
   : `file://${__dirname}/index.html`
 
+
+  console.log(winURL)
+
 function createWindow () {
   /**
    * Initial window options
@@ -24,7 +27,13 @@ function createWindow () {
     useContentSize: true,
     width: 1024
   })
-  mainWindow.webContents.openDevTools()
+  
+  
+  if (process.env.NODE_ENV === 'development'||true) {
+    mainWindow.webContents.openDevTools()
+    BrowserWindow.addDevToolsExtension("C:/Users/Administrator/AppData/Local/Google/Chrome/User Data/Default/Extensions/nhdogjmejiglipccpnnnanhbledajbpd/3.1.7_0");
+}
+
   mainWindow.loadURL(winURL)
 
   mainWindow.on('closed', () => {

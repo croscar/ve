@@ -2,8 +2,12 @@ import Vue from 'vue'
 import iView from 'iview'
 import Util from '../libs/util'
 import VueRouter from 'vue-router'
-import Cookies from 'js-cookie'
+import Cookies from '@/libs/electron-cookie'
 import {routers, otherRouter, appRouter} from './router'
+
+const ipcRenderer = require('electron').ipcRenderer;
+const session = require('electron').remote.session;
+
 
 Vue.use(VueRouter)
 
@@ -14,12 +18,18 @@ const RouterConfig = {
 }
 
 
+
 Cookies.set('user', 'aaa')
 Cookies.set('password', 'bbb')
 Cookies.set('access', 0)
 
 export const router = new VueRouter(RouterConfig)
-console.log("ccccccccccccccccccccc")
+
+console.log("ccccccccccccccc:",Cookies.get("aaa"))
+
+
+
+// console.log("ccccccccccccccccccccc:",session.Cookies.get('user'))
 
 router.beforeEach((to, from, next) => {
   iView.LoadingBar.start()

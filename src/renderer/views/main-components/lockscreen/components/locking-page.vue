@@ -8,7 +8,7 @@
 
 <script>
 import unlock from './unlock.vue'
-import Cookies from 'js-cookie'
+import Cookies from '@/libs/electron-cookie'
 export default {
   components: {
     unlock

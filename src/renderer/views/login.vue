@@ -38,7 +38,7 @@
 </template>
 
 <script>
-import Cookies from 'js-cookie'
+import Cookies from '@/libs/electron-cookie'
 export default {
   data () {
     return {

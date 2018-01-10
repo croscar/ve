@@ -7,7 +7,7 @@
 </template>
 
 <script>
-import Cookies from 'js-cookie'
+import Cookies from '@/libs/electron-cookie'
 const setLockBackSize = () => {
   let x = document.body.clientWidth
   let y = document.body.clientHeight

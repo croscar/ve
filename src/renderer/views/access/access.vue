@@ -43,7 +43,7 @@
 </template>
 
 <script>
-import Cookies from 'js-cookie'
+import Cookies from '@/libs/electron-cookie'
 export default {
   name: 'access_index',
   data () {

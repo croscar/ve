@@ -18,7 +18,7 @@
 </template>
 
 <script>
-import Cookies from 'js-cookie'
+import Cookies from '@/libs/electron-cookie'
 import config from '../../../../../src/config.js'
 export default {
   name: 'themeSwitch',

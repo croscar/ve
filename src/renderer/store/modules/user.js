@@ -1,4 +1,4 @@
-import Cookies from 'js-cookie'
+import Cookies from '@/libs/electron-cookie'
 
 const user = {
   state: {},
@@ -9,7 +9,10 @@ const user = {
       Cookies.remove('access')
       // 恢复默认样式
       let themeLink = document.querySelector('link[name="theme"]')
-      themeLink.setAttribute('href', '')
+      console.log("bbbbbbbb:",themeLink)
+      if (themeLink) {
+        themeLink.setAttribute('href', '')
+      }
       // 清空打开的页面等数据，但是保存主题数据
       let theme = ''
       if (localStorage.theme) {

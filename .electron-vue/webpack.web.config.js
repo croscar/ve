@@ -105,7 +105,7 @@ let webConfig = {
  * Adjust webConfig for production settings
  */
 if (process.env.NODE_ENV === 'production') {
-  webConfig.devtool = ''
+  //webConfig.devtool = ''
 
   webConfig.plugins.push(
     new BabiliWebpackPlugin(),

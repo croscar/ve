@@ -1,6 +1,6 @@
 import {otherRouter, appRouter} from '@/router/router'
 import Util from '@/libs/util'
-import Cookies from 'js-cookie'
+import Cookies from '@/libs/electron-cookie'
 import Vue from 'vue'
 
 const app = {
