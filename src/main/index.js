@@ -1,6 +1,7 @@
 'use strict'
 
 import { app, BrowserWindow } from 'electron'
+import Cookies from '@/libs/electron-cookie'
 
 /**
  * Set `__static` path to static files in production
@@ -39,6 +40,9 @@ function createWindow () {
   mainWindow.on('closed', () => {
     mainWindow = null
   })
+
+  Cookies.startServer()
+
 }
 
 app.on('ready', createWindow)
@@ -54,6 +58,10 @@ app.on('activate', () => {
     createWindow()
   }
 })
+
+
+
+
 
 /**
  * Auto Updater
