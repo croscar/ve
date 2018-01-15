@@ -17,7 +17,7 @@ const winURL = process.env.NODE_ENV === 'development'
   : `file://${__dirname}/index.html`
 
 
-  console.log(winURL)
+console.log(winURL)
 
 function createWindow () {
   /**
@@ -32,7 +32,7 @@ function createWindow () {
   
   if (process.env.NODE_ENV === 'development'||true) {
     mainWindow.webContents.openDevTools()
-    //BrowserWindow.addDevToolsExtension("C:/Users/Administrator/AppData/Local/Google/Chrome/User Data/Default/Extensions/nhdogjmejiglipccpnnnanhbledajbpd/3.1.7_0");
+    BrowserWindow.addDevToolsExtension("C:/4.0.1_0");
 }
 
   mainWindow.loadURL(winURL)
@@ -58,10 +58,6 @@ app.on('activate', () => {
     createWindow()
   }
 })
-
-
-
-
 
 /**
  * Auto Updater

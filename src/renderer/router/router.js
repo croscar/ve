@@ -60,6 +60,7 @@ export const otherRouter = {
   redirect: '/login',
   component: Main,
   children: [
+    { path: 'new', title: {i18n: 'new'}, name: 'home_new', component: resolve => { require(['@/views/new/new.vue'], resolve) } },
     { path: 'land', title: {i18n: 'home'}, name: 'land', component: resolve => { require(['@/components/LandingPage'], resolve) } },
     { path: 'home', title: {i18n: 'home'}, name: 'home_index', component: resolve => { require(['@/views/home/home.vue'], resolve) } },
     { path: 'ownspace', title: '个人中心', name: 'ownspace_index', component: resolve => { require(['@/views/own-space/own-space.vue'], resolve) } },

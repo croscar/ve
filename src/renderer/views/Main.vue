@@ -66,7 +66,7 @@
     </div>
 </template>
 <script>
-    import shrinkableMenu from './main-components/shrinkable-menu/shrinkable-menu.vue'
+import shrinkableMenu from './main-components/shrinkable-menu/shrinkable-menu.vue'
 import tagsPageOpened from './main-components/tags-page-opened.vue'
 import breadcrumbNav from './main-components/breadcrumb-nav.vue'
 import fullScreen from './main-components/fullscreen.vue'
