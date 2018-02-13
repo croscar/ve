@@ -20,7 +20,6 @@
                     </Col>
                 </Row>
             </Col>
-
         </Row>
         <Row :gutter="10" class="margin-top-10">
             <Col :md="24" :lg="24" :style="{marginBottom: '10px'}">
@@ -55,7 +54,7 @@ export default {
       imageName: "",
       tableColumns1: [
         {
-          title: "名称",
+          title: "项目名称",
           key: "name"
         },
         {
@@ -81,7 +80,7 @@ export default {
           }
         },
         {
-          title: "画像内容",
+          title: "涉及领域",
           key: "portrayal",
           render: (h, params) => {
             return h(
@@ -89,7 +88,7 @@ export default {
               {
                 props: {
                   trigger: "hover",
-                  title: params.row.portrayal.length + "个画像",
+                  title: params.row.portrayal.length + "个领域",
                   placement: "bottom"
                 }
               },
@@ -123,7 +122,7 @@ export default {
           }
         },
         {
-          title: "选定人群数",
+          title: "研究人员数",
           key: "people",
           render: (h, params) => {
             return h(
@@ -131,7 +130,7 @@ export default {
               {
                 props: {
                   trigger: "hover",
-                  title: params.row.people.length + "个客群",
+                  title: params.row.people.length + "个小组",
                   placement: "bottom"
                 }
               },
@@ -165,10 +164,17 @@ export default {
           }
         },
         {
-          title: "取样时段",
-          key: "time",
+          title: "总经费",
+          key: "money",
           render: (h, params) => {
-            return h("div", "近" + params.row.time + "天");
+            return h("div", 10000);
+          }
+        },
+        {
+          title: "已投入经费",
+          key: "money2",
+          render: (h, params) => {
+            return h("div", 8000);
           }
         },
         {
@@ -185,30 +191,30 @@ export default {
 
       data1: [
         {
-          title: "parent 1",
+          title: "清华大学",
           expand: true,
           children: [
             {
-              title: "parent 1-1",
+              title: "物理系",
               expand: true,
               children: [
                 {
-                  title: "leaf 1-1-1"
+                  title: "1室"
                 },
                 {
-                  title: "leaf 1-1-2"
+                  title: "2室"
                 }
               ]
             },
             {
-              title: "parent 1-2",
+              title: "计算机系",
               expand: true,
               children: [
                 {
-                  title: "leaf 1-2-1"
+                  title: "软件室"
                 },
                 {
-                  title: "leaf 1-2-1"
+                  title: "网络室"
                 }
               ]
             }
@@ -222,21 +228,21 @@ export default {
       let data = [];
       for (let i = 0; i < 10; i++) {
         data.push({
-          name: "商圈" + Math.floor(Math.random() * 100 + 1),
+          name: "项目" + Math.floor(Math.random() * 100 + 1),
           status: Math.floor(Math.random() * 3 + 1),
-          portrayal: ["城市渗透", "人群迁移", "消费指数", "生活指数", "娱乐指数"],
+          portrayal: ["理论研究", "应用研究", "应用开发", "社会实践", "日常教学"],
           people: [
             {
-              n: "客群" + Math.floor(Math.random() * 100 + 1),
-              c: Math.floor(Math.random() * 1000000 + 100000)
+              n: "高职",
+              c: Math.floor(Math.random() * 100 + 100)
             },
             {
-              n: "客群" + Math.floor(Math.random() * 100 + 1),
-              c: Math.floor(Math.random() * 1000000 + 100000)
+              n: "中职",
+              c: Math.floor(Math.random() * 100 + 100)
             },
             {
-              n: "客群" + Math.floor(Math.random() * 100 + 1),
-              c: Math.floor(Math.random() * 1000000 + 100000)
+              n: "初职",
+              c: Math.floor(Math.random() * 100 + 100)
             }
           ],
           time: Math.floor(Math.random() * 7 + 1),
