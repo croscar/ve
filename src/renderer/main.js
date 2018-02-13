@@ -6,6 +6,7 @@ import VCharts from 'v-charts'
 import 'iview/dist/styles/iview.css'
 
 import App from './App'
+import App3 from './App3'
 
 import store from './store'
 
@@ -35,7 +36,7 @@ new Vue({
   el: '#app',
   router: router,
   store: store,
-  render: h => h(App),
+  render: h => h(App3),
   i18n: i18n,
   data: {
     currentPageName: ''
