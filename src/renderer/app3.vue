@@ -29,7 +29,7 @@ export default {
 
     },
 
-
+ 
     
     getdata: () => {
       const Sequelize = require("sequelize");
